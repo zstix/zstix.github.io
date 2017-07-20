@@ -4,3 +4,5 @@
 - [x] Link to GitHub Pages
 - [ ] Set up DNS
 - [ ] Add Content
+  - [ ] Splash page
+  - [x] Resume
