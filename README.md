@@ -1,8 +1,7 @@
 # Website
-## Development Tasks
-- [x] Create Repository
-- [x] Link to GitHub Pages
-- [x] Set up DNS
-- [ ] Add Content
-  - [x] Splash page
-  - [ ] Resume
+
+Personal website for Zack Stickles. Nothing Fancy.
+
+## TODO
+- [ ] Make some noteworthy projects
+- [ ] Link to some noteworthy projects
