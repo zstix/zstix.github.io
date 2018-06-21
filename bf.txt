@@ -1,6 +1,8 @@
-dir="$HOME/.tmp"
+url="http://zackstickles.com"
 file="bf.jpg"
-remote="http://zackstickles.com/$file"
+
+dir="$HOME/.tmp"
+remote="$url/$file"
 local="$dir/$file"
 
 if [ ! -d $dir ]; then
@@ -9,5 +11,5 @@ fi
 
 curl -s $remote -o $local
 
-# TODO: get this to work
-osascript -e 'tell application "Finder" to set desktop picture to POSIX file "'$path'"'
+cmd="tell application \"Finder\" to set desktop picture to \""$local"\" as POSIX file"
+osascript -e "$cmd"
