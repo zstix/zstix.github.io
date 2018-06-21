@@ -1,0 +1,31 @@
+#!/bin/bash
+
+url="http://zackstickles.com"
+file="mj.gif"
+
+dir="$HOME/Library/Screen Savers"
+path="$dir/AnimatedGif.saver"
+
+tmpDir="$HOME/.tmp" 
+gifDir="$tmpDir/gif"
+
+if [ ! -d $tmpDir ]; then
+	mkdir $tmpDir
+fi
+if [ ! -d $gifDir ]; then
+	mkdir $gifDir
+fi
+if [ ! -f "$gifDir/$file" ]; then
+  curl -s "$url/$file" -o "$gifDir/$file"
+fi
+
+cd "$HOME/Desktop"
+
+curl -L -s -o app.zip https://github.com/Waitsnake/AnimatedGif/releases/download/1.3.8/AnimatedGif.saver.zip
+unzip -qq app.zip -d "$dir"
+rm app.zip
+
+defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "AnimatedGif" path "$path" type "0"
+defaults -currentHost write com.apple.ScreenSaverPhotoChooser SelectedFolderPath "$gifDir"
+
+open -a ScreenSaverEngine
