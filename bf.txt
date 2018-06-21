@@ -9,4 +9,5 @@ fi
 
 curl -s $remote -o $local
 
-osascript -e "tell application 'Finder' to set desktop picture to POSIX file '$path'"
+# TODO: get this to work
+osascript -e 'tell application "Finder" to set desktop picture to POSIX file "'$path'"'
