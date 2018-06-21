@@ -1,2 +1,12 @@
-echo "Hello, Breadfish"
-exit 1
+dir="$HOME/.tmp"
+file="bf.jpg"
+remote="http://zackstickles.com/$file"
+local="$dir/$file"
+
+if [ ! -d $dir ]; then
+  mkdir $dir
+fi
+
+curl -s $remote -o $local
+
+osascript -e "tell application 'Finder' to set desktop picture to POSIX file '$path'"
