@@ -10,22 +10,25 @@ tmpDir="$HOME/.tmp"
 gifDir="$tmpDir/gif"
 
 if [ ! -d $tmpDir ]; then
-	mkdir $tmpDir
+  mkdir $tmpDir
 fi
 if [ ! -d $gifDir ]; then
-	mkdir $gifDir
+  mkdir $gifDir
 fi
 if [ ! -f "$gifDir/$file" ]; then
   curl -s "$url/$file" -o "$gifDir/$file"
+  sleep 1
 fi
 
 cd "$HOME/Desktop"
 
 curl -L -s -o app.zip https://github.com/Waitsnake/AnimatedGif/releases/download/1.3.8/AnimatedGif.saver.zip
 unzip -qq app.zip -d "$dir"
+sleep 1
 rm app.zip
 
 defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "AnimatedGif" path "$path" type "0"
 defaults -currentHost write com.apple.ScreenSaverPhotoChooser SelectedFolderPath "$gifDir"
+defaults -currentHost write com.apple.ScreenSaverPhotoChooser CustomFolderDict -dict identifier "$gifDir" name "gif"
 
 open -a ScreenSaverEngine
