@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Personal website for Zack Stickles. Nothing Fancy.",
   "scripts": {
+    "start": "python -m SimpleHTTPServer 8080",
     "test": "exit 0"
   },
   "repository": {
