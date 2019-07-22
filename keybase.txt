@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/zstix
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://zstix.io
+  * I am zstix (https://keybase.io/zstix) on keybase.
+  * I have a public key ASCpK4HrCgwPdSQd6_Gr2oiYweZSXtjPujLiN9ba7GNcJwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012000b22fa907c347b1b0e5cecafdccc19e2a7b953b4318eb1c8c86393bc254cd770a",
+      "host": "keybase.io",
+      "kid": "0120a92b81eb0a0c0f75241debf1abda8898c1e6525ed8cfba32e237d6daec635c270a",
+      "uid": "e1f9567417e53fe133d9e8ae4bd68e19",
+      "username": "zstix"
+    },
+    "merkle_root": {
+      "ctime": 1563769866,
+      "hash": "363df0fc98ab0d4f814ac678999424476cb23e848cb5baa241ac85112fbe060198c3d8e88c71eceb580eadc4491abbc60f004be681751adf1f40d10a597c01a2",
+      "hash_meta": "ca61762265ffde16537311f47f77685099eb9a8ed0c91f06841b130df81ed85a",
+      "seqno": 5819541
+    },
+    "service": {
+      "entropy": "aqftOXALwNHH7IpFPnwfSBwC",
+      "hostname": "zstix.io",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.2.1"
+  },
+  "ctime": 1563769889,
+  "expire_in": 504576000,
+  "prev": "046a8ebb05371b73d3c87c61e70a975d3ece0c3852468c8deadefa3245dc63fd",
+  "seqno": 19,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgqSuB6woMD3UkHevxq9qImMHmUl7Yz7oy4jfW2uxjXCcKp3BheWxvYWTESpcCE8QgBGqOuwU3G3PTyHxh5wqXXT7ODDhSRoyN6t76MkXcY/3EIMtmQJyfdKo42cy8qujYVVV1K2Gxu8RkH/kwYZb7axg9AgHCo3NpZ8RAvSLEiCGl8CmgcoWCWlfMEnzwlHJlQrETkeAv6HjpLhTPYje+MLpJmma0p5cS7D/6sWSC2qKsv/wFRInlF8QxBqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIAsvQDoMF7NJtH6r4665y3H0ahd8w8mGOSETC7P7HY24o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/zstix
+
+==================================================================
