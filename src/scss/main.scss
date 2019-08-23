@@ -1,15 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+
 body {
-  background-color: #eee;
-  color: #444;
-  font-size: 18px;
-  line-height: 1.6em;
-  margin: 40px auto;
-  max-width: 650px;
-  padding: 0 10px;
+  // TODO: remove this
+  background-color: #333;
+  padding: 0;
+  margin: 0;
+  position: relative;
 }
 
-h1,
-h2,
-h3 {
-  line-height: 1.2em;
+.black-on-white {
+  background-color: white;
+  color: black;
+}
+
+.white-on-black {
+  background-color: black;
+  color: white;
+}
+
+.buffer {
+  padding: 1em;
+  border-radius: 0.4em;
+}
+
+// TODO: hover effect
+nav {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+
+  a {
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-right: 1.5em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
