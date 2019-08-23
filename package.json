@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Personal website for Zack Stickles. Nothing Fancy.",
   "scripts": {
-    "dev": "parcel index.html",
-    "test": "exit 0"
+    "build": "parcel build src/js/index.js && npm run build:gh",
+    "build:gh": "./bin/deploy.py",
+    "dev": "parcel src/index.html"
   },
   "repository": {
     "type": "git",
