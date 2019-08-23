@@ -1,2 +1,3 @@
-import { name } from './test';
-console.log(`Hello, ${name}`);
+import '../scss/main.scss';
+
+console.log('Hello, styles');
