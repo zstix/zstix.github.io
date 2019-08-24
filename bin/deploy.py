@@ -15,12 +15,19 @@ print("[*] Updating JS")
 with open('index.js', 'w+') as output, open('dist/index.js', 'r') as file:
   copyfileobj(file, output)
 
+# copy css
+print("[*] Updating CSS")
+with open('index.css', 'w+') as output, open('dist/index.css', 'r') as file:
+  copyfileobj(file, output)
+
 # update html
 print("[*] Updating Paths")
 with open('index.html', 'r') as file:
   data = file.read()
 
 data = data.replace('js/', '')
+data = data.replace('<!--', '')
+data = data.replace('-->', '')
 
 with open('index.html', 'w') as output:
   output.write(data)
