@@ -39,6 +39,7 @@ nav {
   position: absolute;
   top: 1em;
   right: 1em;
+  z-index: 5;
 
   a {
     font-family: 'Lexend Deca', sans-serif;
@@ -105,6 +106,7 @@ nav {
   text-align: center;
   top: 10em;
   width: 400px;
+  z-index: 5;
 }
 
 @media only screen and (max-width: 800px) {
@@ -129,13 +131,22 @@ nav {
     margin-right: 0.6em;
     border-radius: 50%;
     cursor: pointer;
-  }
 
-  &.black-on-white .control {
-    border: 3px solid black;
-  }
+    &.black-on-white {
+      border: 3px solid black;
+    }
 
-  &.white-on-black .control {
-    border: 3px solid white;
+    &.white-on-black {
+      border: 3px solid white;
+    }
   }
+}
+
+.background-container {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
