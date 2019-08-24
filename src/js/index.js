@@ -3,9 +3,10 @@ import rainbow from './rainbow';
 
 import '../scss/main.scss';
 
+const backgrounds = [plain, rainbow];
+
 const controls = document.querySelector('.controls');
 const backgroundContainer = document.querySelector('.background-container');
-const backgrounds = [plain, rainbow];
 
 const updateColorElements = (color = 'black') => {
   const colorElements = document.querySelectorAll('.js-colors');
@@ -20,6 +21,12 @@ const updateColorElements = (color = 'black') => {
   });
 }
 
+const setActive = (bg, backgroundContainer) => {
+  const { color, render } = bg;
+  render(backgroundContainer)
+  updateColorElements(color);
+};
+
 const init = (backgrounds, controls, backgroundContainer) => {
   // create controls
   backgrounds.forEach((bg) => {
@@ -30,12 +37,16 @@ const init = (backgrounds, controls, backgroundContainer) => {
     controls.appendChild(control);
   });
 
-  // render one
-  const { color, render } = backgrounds[0];
-  render(backgroundContainer)
-  updateColorElements(color);
+  // render one at random
+  const index = Math.round(Math.random() * backgrounds.length);
+  setActive(backgrounds[index], backgroundContainer);
 
   // todo click controls
+  controls.querySelectorAll('.control').forEach((control, index) => {
+    control.addEventListener('click', (e) => {
+      setActive(backgrounds[index], backgroundContainer);
+    });
+  });
 };
 
 init(backgrounds, controls, backgroundContainer);

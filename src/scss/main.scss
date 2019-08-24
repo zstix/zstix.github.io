@@ -139,6 +139,15 @@ nav {
     &.white-on-black {
       border: 3px solid white;
     }
+
+    &:hover {
+      width: 2em;
+      height: 2em;
+      margin-bottom: -0.1em;
+      margin-left: -0.1em;
+      margin-right: 0.5em;
+      transition: all 0.2s;
+    }
   }
 }
 
