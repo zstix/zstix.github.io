@@ -41,10 +41,10 @@ const drawSquiggle = (ctx, color, length = 100) => {
     pos.y += (Math.round(Math.random() * 2) - 1) * size;
 
     // keep in bounds
-    if (pos.x <= 0) pos.x = size;
-    if (pos.y <= 0) pos.y = size;
-    if (pos.x >= window.innerWidth) pos.x = window.innerWidth - size;
-    if (pos.y >= window.innerHeight) pos.y = window.innerHeigh - size;
+    if (pos.x <= 0) pos.x = 0;
+    if (pos.y <= 0) pos.y = 0;
+    if (pos.x >= window.innerWidth) pos.x = window.innerWidth;
+    if (pos.y >= window.innerHeight) pos.y = window.innerHeigh;
   };
 };
 
