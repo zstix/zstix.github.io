@@ -4,7 +4,7 @@ import mapSimple from './mapSimple';
 
 import '../scss/main.scss';
 
-const backgrounds = [plain, rainbow, mapSimple];
+const backgrounds = [plain, rainbow/*, mapSimple*/];
 
 const controls = document.querySelector('.controls');
 const backgroundContainer = document.querySelector('.background-container');

@@ -125,6 +125,8 @@ const render = (container) => {
   container.appendChild(canvas);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  canvas.style.position = 'relative';
+  canvas.style.zIndex = 1;
   const ctx = canvas.getContext('2d');
 
   // initial art settings
