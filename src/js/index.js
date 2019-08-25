@@ -1,9 +1,10 @@
 import plain from './plain';
 import rainbow from './rainbow';
+import mapSimple from './mapSimple';
 
 import '../scss/main.scss';
 
-const backgrounds = [plain, rainbow];
+const backgrounds = [plain, rainbow, mapSimple];
 
 const controls = document.querySelector('.controls');
 const backgroundContainer = document.querySelector('.background-container');
@@ -39,7 +40,7 @@ const init = (backgrounds, controls, backgroundContainer) => {
 
   // render one at random
   // const index = Math.round(Math.random() * backgrounds.length);
-  const index = 1;
+  const index = 2;
   setActive(backgrounds[index], backgroundContainer);
 
   // todo click controls
