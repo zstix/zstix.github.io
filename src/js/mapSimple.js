@@ -114,17 +114,15 @@ const messyHouse = (ctx, x, y, size, a1 = 0.2, a2 = -0.5, pitch = 0.6, mess = 15
 };
 
 const render = (container) => {
-  // clear out styles
-  container.setAttribute('style', '');
+  // clear container
   container.innerHTML = '';
-
-  container.setAttribute('style', `background-color: ${paperColor}`);
 
   // create canvas / context
   const canvas = document.createElement('canvas');
   container.appendChild(canvas);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  canvas.style.backgroundColor = paperColor;
   canvas.style.position = 'relative';
   canvas.style.zIndex = 1;
   const ctx = canvas.getContext('2d');

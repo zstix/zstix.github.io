@@ -49,8 +49,7 @@ const drawSquiggle = (ctx, color, length = 100) => {
 };
 
 const render = (container) => {
-  // clear out styles
-  container.setAttribute('style', '');
+  // clear out container
   container.innerHTML = '';
 
   // create canvas / context
@@ -58,8 +57,7 @@ const render = (container) => {
   container.appendChild(canvas);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  canvas.style.position = 'relative';
-  canvas.style.zIndex = 1;
+  canvas.style.backgroundColor = 'white';
   const ctx = canvas.getContext('2d');
 
   // draw!
