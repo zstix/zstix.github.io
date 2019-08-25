@@ -38,7 +38,8 @@ const init = (backgrounds, controls, backgroundContainer) => {
   });
 
   // render one at random
-  const index = Math.round(Math.random() * backgrounds.length);
+  // const index = Math.round(Math.random() * backgrounds.length);
+  const index = 1;
   setActive(backgrounds[index], backgroundContainer);
 
   // todo click controls
