@@ -1,6 +1,11 @@
+// WORK IN PROGRESS
+
+
 const paperColor = '#F1E9DE';
 
 const radToDeg = a => a * 180 / Math.PI;
+
+const degToRad = a => a * Math.PI / 180;
 
 const point = (x, y) => ({ x, y });
 
@@ -60,6 +65,14 @@ const messyLine = (ctx, start, end, seg, mess = 0.1) => {
 };
 
 const messyHouse = (ctx, x, y, size, a1 = 0.2, a2 = -0.5, pitch = 0.6, mess = 15) => {
+  // add variations to the house
+  const sizeDiff = Math.round(Math.random() * (size / 4)) - 3;
+  const pitchDiff = (Math.round(Math.random() * 2) - 1) / 35;
+  size = size + sizeDiff;
+  x -= sizeDiff;
+  y -= sizeDiff;
+  pitch += pitchDiff;
+
   // house points
   const points = {
     sideTopLeft: point(x, y),
@@ -113,6 +126,19 @@ const messyHouse = (ctx, x, y, size, a1 = 0.2, a2 = -0.5, pitch = 0.6, mess = 15
   messyLine(ctx, points.roofLeft, points.roofRight, mess); // top roof
 };
 
+const drawRoad = (ctx, start, end, angle = 25) => {
+  const houses = getDist(start, end) / 20;
+  const segDist = getDist(start, end) / houses;
+  let points = [start];
+  for (let i = 1; i < houses; i++) {
+    const prevPoint = points[i - 1];
+    const a = getAngle(prevPoint, end);
+    points.push(getPoint(prevPoint, a, segDist));
+  }
+  points.push(end);
+  points.reverse().forEach(p => messyHouse(ctx, p.x, p.y, 20));
+}
+
 const render = (container) => {
   // clear container
   container.innerHTML = '';
@@ -127,17 +153,42 @@ const render = (container) => {
   canvas.style.zIndex = 1;
   const ctx = canvas.getContext('2d');
 
+  // wip flag
+  const p = document.createElement('p');
+  p.innerText = 'Work In Progress...';
+  p.setAttribute('style', 'position: absolute; top: 0; left: 0; z-index: 2;')
+  container.appendChild(p);
+
   // initial art settings
   ctx.strokeStyle = '#333';
   ctx.lineWidth = 2;
   ctx.fillStyle = paperColor;
 
   // draw!
-  messyHouse(ctx, 100, 200, 20)
+  const angle = degToRad(-25);
+  [...Array(25).keys()]
+    .map(() => {
+      const x = Math.round(Math.random() * window.innerWidth);
+      const y = Math.round(Math.random() * window.innerHeight);
+      const length = Math.round(Math.random() * 600) - 300 + 200;
+      const a = point(x, y);
+      const b = getPoint(a, angle, length);
+      return { a, b };
+    })
+    .sort((a, b) => a.a.y - b.a.y)
+    .forEach((road) => drawRoad(ctx, road.a, road.b, angle))
 };
 
 export default {
   color: 'white',
   render,
-  style: `background-color: ${paperColor}` // TODO: better icon
+  style: `
+  background: ${paperColor};
+  background: repeating-linear-gradient(
+      45deg,
+      ${paperColor},
+      ${paperColor} 19px,
+      #333 19px,
+      #333 21px
+  )`
 };
