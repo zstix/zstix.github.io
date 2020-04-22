@@ -1,12 +1,77 @@
-parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"qXjy":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e="#eee",t=function(t){t.innerHTML="";var o=document.createElement("div");t.appendChild(o),o.style.width="100%",o.style.height="100%",o.style.backgroundColor=e},o={color:"black",render:t,style:"background-color: ".concat(e)};exports.default=o;
-},{}],"F6PD":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=["#800000","#FF0000","#808000","#FFFF00","#008000","#00FF00","#008080","#00FFFF","#000080","#0000FF","#0000FF","#FF00FF","#808040","#FFFF80","#004040","#00FF80","#0080FF","#80FFFF","#004080","#8080FF","#8000FF","#FF0080","#804000","#FF8040"],n={x:300,y:300},r=function(e,r){var F=arguments.length>2&&void 0!==arguments[2]?arguments[2]:100;e.fillStyle=r;for(var t=0;t<=F;t++)e.fillRect(n.x,n.y,3,3),n.x+=3*(Math.round(2*Math.random())-1),n.y+=3*(Math.round(2*Math.random())-1),n.x<=0&&(n.x=0),n.y<=0&&(n.y=0),n.x>=window.innerWidth&&(n.x=window.innerWidth),n.y>=window.innerHeight&&(n.y=window.innerHeigh)},F=function(F){F.innerHTML="";var t=document.createElement("canvas");F.appendChild(t),t.width=window.innerWidth,t.height=window.innerHeight,t.style.backgroundColor="white";var i=t.getContext("2d");n.x=300,n.y=300;for(var d=0;d<=1e3;d++){var o=Math.round(Math.random()*e.length),a=e[o];r(i,a)}},t={color:"black",render:F,style:"background-image: radial-gradient(red, yellow, green, blue, purple)"};exports.default=t;
-},{}],"SWuV":[function(require,module,exports) {
-"use strict";function t(t){return i(t)||e(t)||o()}function o(){throw new TypeError("Invalid attempt to spread non-iterable instance")}function e(t){if(Symbol.iterator in Object(t)||"[object Arguments]"===Object.prototype.toString.call(t))return Array.from(t)}function i(t){if(Array.isArray(t)){for(var o=0,e=new Array(t.length);o<t.length;o++)e[o]=t[o];return e}}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var n="#F1E9DE",r=function(t){return 180*t/Math.PI},f=function(t){return t*Math.PI/180},h=function(t,o){return{x:t,y:o}},d=function(t,o){return Math.atan2(o.y-t.y,o.x-t.x)},a=function(t,o){var e=t.x-o.x,i=t.y-o.y;return Math.sqrt(e*e+i*i)},s=function(t,o,e){return{x:Math.cos(o)*e+t.x,y:Math.sin(o)*e+t.y}},g=function(t,o,e){t.beginPath(),t.moveTo(o.x,o.y),t.lineTo(e.x,e.y),t.stroke()},l=function(t,o){o.forEach(function(e,i){if(0===i)return!1;g(t,o[i-1],e)})},p=function(t,o){var e=o.x,i=o.y,n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:"red";t.strokeStyle=n||"#F00",t.fillStyle=n||"#FFF",t.beginPath(),t.arc(e,i,2,0,8*Math.PI),t.stroke(),t.fill(),t.strokeStyle="#000",t.fillStyle="#FFF"},u=function(t,o){return o.map(function(o){return p(t,o)})},T=function(t,o,e,i){for(var n=arguments.length>4&&void 0!==arguments[4]?arguments[4]:.1,r=a(o,e)/i,f=[o],h=1;h<i;h++){var g=f[h-1],p=d(g,e)+Math.random()*n-n/2;f.push(s(g,p,r))}f.push(e),l(t,f)},y=function(t,o,e,i){var n=arguments.length>4&&void 0!==arguments[4]?arguments[4]:.2,r=arguments.length>5&&void 0!==arguments[5]?arguments[5]:-.5,f=arguments.length>6&&void 0!==arguments[6]?arguments[6]:.6,d=arguments.length>7&&void 0!==arguments[7]?arguments[7]:15,a=Math.round(Math.random()*(i/4))-3;i+=a,f+=(Math.round(2*Math.random())-1)/35;var s={sideTopLeft:h(o-=a,e-=a),sideTopRight:h(o+i,e+i*n),sideBottomRight:h(o+i,e+i+i*n),sideBottomLeft:h(o,e+i),frontTopRight:h(o+2*i,e+i*n+i*r),frontBottomRight:h(o+2*i,e+i*n+i+i*r),roofLeft:h(o+i*f*(1.6*f),e-i*f),roofRight:h(o+i*f*(4*f),e-i)};t.beginPath(),t.moveTo(s.sideTopLeft.x,s.sideTopLeft.y),t.lineTo(s.sideTopRight.x,s.sideTopRight.y),t.lineTo(s.sideBottomRight.x,s.sideBottomRight.y),t.lineTo(s.sideBottomLeft.x,s.sideBottomLeft.y),t.lineTo(s.sideTopLeft.x,s.sideTopLeft.y),t.moveTo(s.sideTopRight.x,s.sideTopRight.y),t.lineTo(s.frontTopRight.x,s.frontTopRight.y),t.lineTo(s.frontBottomRight.x,s.frontBottomRight.y),t.lineTo(s.sideBottomRight.x,s.sideBottomRight.y),t.lineTo(s.sideTopRight.x,s.sideTopRight.y),t.moveTo(s.frontTopRight.x,s.frontTopRight.y),t.lineTo(s.roofRight.x,s.roofRight.y),t.lineTo(s.roofLeft.x,s.roofLeft.y),t.lineTo(s.sideTopRight.x,s.sideTopRight.y),t.lineTo(s.frontTopRight.x,s.frontTopRight.y),t.moveTo(s.roofLeft.x,s.roofLeft.y),t.lineTo(s.sideTopLeft.x,s.sideTopLeft.y),t.lineTo(s.sideTopRight.x,s.sideTopRight.y),t.lineTo(s.roofLeft.x,s.roofLeft.y),t.fill(),T(t,s.sideTopLeft,s.sideTopRight,d),T(t,s.sideTopRight,s.sideBottomRight,d),T(t,s.sideBottomRight,s.sideBottomLeft,d),T(t,s.sideBottomLeft,s.sideTopLeft,d),T(t,s.sideTopRight,s.frontTopRight,d),T(t,s.sideBottomRight,s.frontBottomRight,d),T(t,s.frontBottomRight,s.frontTopRight,d),T(t,s.sideTopLeft,s.roofLeft,d),T(t,s.sideTopRight,s.roofLeft,d),T(t,s.frontTopRight,s.roofRight,d),T(t,s.roofLeft,s.roofRight,d)},c=function(t,o,e){arguments.length>3&&void 0!==arguments[3]&&arguments[3];for(var i=a(o,e)/20,n=a(o,e)/i,r=[o],f=1;f<i;f++){var h=r[f-1],g=d(h,e);r.push(s(h,g,n))}r.push(e),r.reverse().forEach(function(o){return y(t,o.x,o.y,20)})},R=function(o){o.innerHTML="";var e=document.createElement("canvas");o.appendChild(e),e.width=window.innerWidth,e.height=window.innerHeight,e.style.backgroundColor=n,e.style.position="relative",e.style.zIndex=1;var i=e.getContext("2d"),r=document.createElement("p");r.innerText="Work In Progress...",r.setAttribute("style","position: absolute; top: 0; left: 0; z-index: 2;"),o.appendChild(r),i.strokeStyle="#333",i.lineWidth=2,i.fillStyle=n;var d=f(-25);t(Array(25).keys()).map(function(){var t=Math.round(Math.random()*window.innerWidth),o=Math.round(Math.random()*window.innerHeight),e=Math.round(600*Math.random())-300+200,i=h(t,o);return{a:i,b:s(i,d,e)}}).sort(function(t,o){return t.a.y-o.a.y}).forEach(function(t){return c(i,t.a,t.b,d)})},x={color:"white",render:R,style:"\n  background: ".concat(n,";\n  background: repeating-linear-gradient(\n      45deg,\n      ").concat(n,",\n      ").concat(n," 19px,\n      #333 19px,\n      #333 21px\n  )")};exports.default=x;
-},{}],"Koq2":[function(require,module,exports) {
+// I know I could have done this randomly, but I needed this specific set of colors
+// to reproduce an effect I created about 20 years ago.
+const colors = [
+  "#800000",
+  "#FF0000",
+  "#808000",
+  "#FFFF00",
+  "#008000",
+  "#00FF00",
+  "#008080",
+  "#00FFFF",
+  "#000080",
+  "#0000FF",
+  "#0000FF",
+  "#FF00FF",
+  "#808040",
+  "#FFFF80",
+  "#004040",
+  "#00FF80",
+  "#0080FF",
+  "#80FFFF",
+  "#004080",
+  "#8080FF",
+  "#8000FF",
+  "#FF0080",
+  "#804000",
+  "#FF8040",
+];
 
-},{}],"Focm":[function(require,module,exports) {
-"use strict";var e=r(require("./plain")),t=r(require("./rainbow")),c=r(require("./mapSimple"));function r(e){return e&&e.__esModule?e:{default:e}}require("../scss/main.scss");var o=[e.default,t.default,c.default],n=document.querySelector(".controls"),l=document.querySelector(".background-container"),a=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"black",t=document.querySelectorAll(".js-colors"),c="black"===e?"black-on-white":"white-on-black";t.forEach(function(e){e.classList.remove("black-on-white"),e.classList.remove("white-on-black"),e.classList.add(c)})},i=function(e,t){var c=e.color;(0,e.render)(t),a(c)},s=function(e,t,c){e.forEach(function(e){var c=document.createElement("div");c.classList.add("control"),c.classList.add("js-colors"),c.setAttribute("style",e.style),t.appendChild(c)});i(e[1],c),t.querySelectorAll(".control").forEach(function(t,r){t.addEventListener("click",function(t){i(e[r],c)})})};s(o,n,l);
-},{"./plain":"qXjy","./rainbow":"F6PD","./mapSimple":"SWuV","../scss/main.scss":"Koq2"}]},{},["Focm"], null)
-//# sourceMappingURL=/index.js.map
+// TODO: recursion not side-effects
+let pos = { x: 300, y: 300 };
+
+// TODO: make this more functional
+const drawSquiggle = (ctx, color, length = 100) => {
+  const size = 3;
+  ctx.fillStyle = color;
+
+  for (let i = 0; i <= length; i++) {
+    ctx.fillRect(pos.x, pos.y, size, size);
+    pos.x += (Math.round(Math.random() * 2) - 1) * size;
+    pos.y += (Math.round(Math.random() * 2) - 1) * size;
+
+    // keep in bounds
+    if (pos.x <= 0) pos.x = 0;
+    if (pos.y <= 0) pos.y = 0;
+    if (pos.x >= window.innerWidth) pos.x = window.innerWidth;
+    if (pos.y >= window.innerHeight) pos.y = window.innerHeigh;
+  }
+};
+
+const render = (container) => {
+  // clear out container
+  container.innerHTML = "";
+
+  // create canvas / context
+  const canvas = document.createElement("canvas");
+  container.appendChild(canvas);
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.style.backgroundColor = "white";
+  const ctx = canvas.getContext("2d");
+
+  // draw!
+  const duration = 1000;
+  pos.x = 300;
+  pos.y = 300;
+
+  for (let i = 0; i <= duration; i++) {
+    const index = Math.round(Math.random() * colors.length);
+    const color = colors[index];
+    drawSquiggle(ctx, color);
+  }
+};
+
+const backgroundContainer = document.querySelector(".background-container");
+
+render(backgroundContainer);
